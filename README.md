@@ -23,7 +23,7 @@ A simple command-line tool for batch renaming files by removing specified prefix
 
 2. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/nedit.git
+git clone https://github.com/toghroltp/nedit.git
 cd nedit
 ```
 
