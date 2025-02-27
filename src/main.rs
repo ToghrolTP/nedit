@@ -1,16 +1,17 @@
 use std::io::{self, Write};
 use std::fs;
+use colored::*;
 
 fn main() -> io::Result<()> {
-    println!("=== PREFIX REMOVAL TOOL ===");
-    println!("This script will remove prefixes such as 'spotidownloader.com - ' from your music files.");
+    println!("{} PREFIX REMOVAL TOOL {}", "--===".yellow(), "===--".yellow());
+    println!("This program will remove prefixes such as 'spotidownloader.com - ' from your music files.");
     println!();
 
     println!("Type the prefix: ");
     let mut prefix = String::new();
     io::stdin()
         .read_line(&mut prefix)
-        .expect("Failed to read prefix");
+        .map_err(|e| io::Error::new(io::ErrorKind::Other, format!("Failed to read prefix: {}", e)))?;
     let prefix = prefix.trim();
 
     // Get all files in current directory
